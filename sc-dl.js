@@ -68,24 +68,24 @@ let sndcld_dl = function(url, path) {
         let path = this.path;
 
         let get_malformed_url_callback = function(malformed_url) {
-            console.log(" [❤] Malformed URL created");
-            console.log(" [❤] Streaming to", path);
+            console.log(" Malformed URL created");
+            console.log(" Streaming to", path);
             request({
                 url: malformed_url,
                 headers: {
                     "User-Agent": sndcld.user_agent
                 }
             }, function(error, response, body) {
-                console.log(" [❤] Song downloaded! [❤]");
+                console.log(" Song downloaded! [❤]");
             }).pipe(
                 filesystem.createWriteStream(path)
             );
         };
 
         let get_playlist_callback = function(playlist) {
-            console.log(" [❤] Getting playlist");
-            console.log(" [❤] Got playlist");
-            console.log(" [❤] Creating malformed URL");
+            console.log(" Getting playlist");
+            console.log(" Got playlist");
+            console.log(" Creating malformed URL");
             sndcld.get_malformed_url(playlist,
                 get_malformed_url_callback);
         };
